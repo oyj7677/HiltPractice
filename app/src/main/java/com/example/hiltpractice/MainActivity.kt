@@ -18,16 +18,13 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-
-    @Inject
-    lateinit var myName: MyName
-
-    @Inject
-    lateinit var app: Application
+    private val TAG = "MainActivity"
+    lateinit var foo: Foo
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.e("MainActivity", "app = $app")
+        assert(this::foo.isInitialized)
+
         setContent {
             HiltPracticeTheme {
                 // A surface container using the 'background' color from the theme
@@ -35,10 +32,16 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting(myName.toString())
+                    Greeting("OYJ")
                 }
             }
         }
+    }
+
+    @Inject
+    fun injectFoo(foo: Foo) {
+        Log.e(TAG, "injectFoo : $foo", )
+        this.foo = foo
     }
 }
 
