@@ -12,22 +12,25 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.hiltpractice.ui.theme.HiltPracticeTheme
 import dagger.hilt.android.AndroidEntryPoint
-import dagger.Lazy
 import javax.inject.Inject
+import javax.inject.Provider
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     private val TAG = "MainActivity"
 
     @Inject
-    lateinit var lazyFoo1: Lazy<Foo>
+    lateinit var providerFoo1: Provider<Foo>
 
     @Inject
-    lateinit var lazyFoo2: Lazy<Foo>
+    lateinit var providerFoo2: Provider<Foo>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        assert(lazyFoo1.get() === lazyFoo2.get())
+        val foo1 = providerFoo1.get()
+        val foo2 = providerFoo2.get()
+
+        assert(foo1 === foo2 )
 
         setContent {
             HiltPracticeTheme {
