@@ -20,28 +20,18 @@ import javax.inject.Inject
 class MainActivity : ComponentActivity() {
     private val TAG = "MainActivity"
 
-//    @Inject
-//    lateinit var car: Car
-
     @Inject
-    lateinit var optionalFoo:Optional<Foo>
+    lateinit var str: Set<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        assert((optionalFoo != null))
-        Log.e(TAG, "isPresent = ${optionalFoo.isPresent}")
-
-        val foo = optionalFoo.get()
-        Log.e(TAG,foo.toString())
-
         setContent {
             HiltPracticeTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("OYJ")
+                    Greeting(str.toString())
                 }
             }
         }
