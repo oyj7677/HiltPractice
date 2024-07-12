@@ -1,6 +1,7 @@
 package com.example.hiltpractice
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -20,17 +21,12 @@ class MainActivity : ComponentActivity() {
     private val TAG = "MainActivity"
 
     @Inject
-    lateinit var providerFoo1: Provider<Foo>
-
-    @Inject
-    lateinit var providerFoo2: Provider<Foo>
+    lateinit var car: Car
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val foo1 = providerFoo1.get()
-        val foo2 = providerFoo2.get()
 
-        assert(foo1 === foo2 )
+        Log.e(TAG, "엔진타입 = ${car.engine}" )
 
         setContent {
             HiltPracticeTheme {
