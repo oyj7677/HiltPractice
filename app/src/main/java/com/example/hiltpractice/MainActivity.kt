@@ -13,20 +13,27 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.hiltpractice.ui.theme.HiltPracticeTheme
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.Optional
 import javax.inject.Inject
-import javax.inject.Provider
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     private val TAG = "MainActivity"
 
+//    @Inject
+//    lateinit var car: Car
+
     @Inject
-    lateinit var car: Car
+    lateinit var optionalFoo:Optional<Foo>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        Log.e(TAG, "엔진타입 = ${car.engine}" )
+        assert((optionalFoo != null))
+        Log.e(TAG, "isPresent = ${optionalFoo.isPresent}")
+
+        val foo = optionalFoo.get()
+        Log.e(TAG,foo.toString())
 
         setContent {
             HiltPracticeTheme {
