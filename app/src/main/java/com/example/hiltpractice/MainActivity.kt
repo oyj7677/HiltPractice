@@ -23,6 +23,9 @@ class MainActivity : ComponentActivity() {
     @Inject
     lateinit var str: Set<String>
 
+    @Inject
+    lateinit var map:Map<Animal, String>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -31,7 +34,7 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting(str.toString())
+                    Greeting(map[Animal.PIG].orEmpty())
                 }
             }
         }
