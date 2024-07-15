@@ -4,4 +4,6 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 
-class Foo
+class Foo @Inject constructor() {
+
+}

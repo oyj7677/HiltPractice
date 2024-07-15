@@ -19,6 +19,8 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val fooManager = FooManager()
+        fooManager.doSomething(this.applicationContext)
         setContent {
             HiltPracticeTheme {
                 // A surface container using the 'background' color from the theme
