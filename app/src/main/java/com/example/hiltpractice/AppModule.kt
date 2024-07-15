@@ -13,43 +13,4 @@ import dagger.multibindings.IntoSet
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
-    @Provides
-    @IntoSet
-    fun provideOneString(): String {
-        return "ABC"
-    }
-
-    @Provides
-    @ElementsIntoSet
-    fun provideMultipleString(): Set<String> {
-        return listOf("DEF", "GHI").toSet()
-    }
-
-    @Provides
-    @IntoMap
-    @IntKey(100)
-    fun provideIntoString(): String {
-       return "백점"
-    }
-
-    @Provides
-    @IntoMap
-    @IntKey(90)
-    fun provideIntoString2(): String {
-        return "구십점"
-    }
-
-    @Provides
-    @IntoMap
-    @AnimalKey(Animal.DOG)
-    fun provideDog(): String {
-        return "멍멍이"
-    }
-
-    @Provides
-    @IntoMap
-    @AnimalKey(Animal.CAT)
-    fun provideCat(): String {
-        return "고양이"
-    }
 }
