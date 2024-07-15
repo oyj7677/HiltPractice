@@ -15,12 +15,9 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    private val TAG = "MainActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val fooManager = FooManager()
-        fooManager.doSomething(this.applicationContext)
         setContent {
             HiltPracticeTheme {
                 // A surface container using the 'background' color from the theme
@@ -32,7 +29,6 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-
 }
 
 @Composable
