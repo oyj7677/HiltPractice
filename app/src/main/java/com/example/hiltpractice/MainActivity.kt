@@ -12,22 +12,27 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.hiltpractice.ui.theme.HiltPracticeTheme
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
+    @Inject
+    lateinit var myDialog: MyDialog
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            HiltPracticeTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("world")
-                }
-            }
-        }
+        myDialog.show()
+//        setContent {
+//            HiltPracticeTheme {
+//                // A surface container using the 'background' color from the theme
+//                Surface(
+//                    modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
+//                ) {
+//                    Greeting("world")
+//                }
+//            }
+//        }
     }
 }
 
