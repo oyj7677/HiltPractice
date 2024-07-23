@@ -14,20 +14,20 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.presentation.component.FCButton
 import com.example.presentation.component.FCTextField
 import com.example.presentation.theme.HiltPracticeTheme
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LoginScreen(
     id: String,
     password: String,
     onIdChange: (String) -> Unit,
     onPasswordChange: (String) -> Unit,
-    onNavigateToSignUpScreen:() -> Unit
+    onNavigateToSignUpScreen: () -> Unit
 ) {
     Surface {
         Column(
@@ -40,19 +40,18 @@ fun LoginScreen(
             ) {
                 Text(
                     text = "Connected",
-                    style = MaterialTheme.typography.displaySmall
+                    style = MaterialTheme.typography.displaySmall,
                 )
                 Text(
                     text = "Your favorite social network",
                     style = MaterialTheme.typography.labelSmall
                 )
             }
-
             Column(
                 modifier = Modifier
                     .padding(top = 24.dp)
                     .background(MaterialTheme.colorScheme.background)
-                    .padding(horizontal = 16.dp),
+                    .padding(horizontal = 16.dp)
             ) {
                 Text(
                     modifier = Modifier.padding(top = 36.dp),
@@ -64,6 +63,7 @@ fun LoginScreen(
                     text = "Id",
                     style = MaterialTheme.typography.labelLarge
                 )
+
                 FCTextField(
                     modifier = Modifier
                         .padding(top = 8.dp)
@@ -74,7 +74,7 @@ fun LoginScreen(
 
                 Text(
                     modifier = Modifier.padding(top = 16.dp),
-                    text = "password",
+                    text = "Password",
                     style = MaterialTheme.typography.labelLarge
                 )
                 FCTextField(
@@ -82,24 +82,21 @@ fun LoginScreen(
                         .padding(top = 8.dp)
                         .fillMaxWidth(),
                     value = password,
-                    onValueChange = onPasswordChange
+                    onValueChange = onPasswordChange,
                 )
-
                 FCButton(
                     modifier = Modifier
                         .padding(top = 24.dp)
                         .fillMaxWidth(),
                     text = "로그인",
-                    onClick = {}
+                    onClick = { }
                 )
-
                 Spacer(modifier = Modifier.weight(1f))
                 Row(
                     modifier = Modifier
                         .align(Alignment.CenterHorizontally)
                         .padding(bottom = 24.dp)
                         .clickable(onClick = onNavigateToSignUpScreen)
-
                 ) {
                     Text(text = "Don't have an account?")
                     Text(text = "Sign up", color = MaterialTheme.colorScheme.primary)

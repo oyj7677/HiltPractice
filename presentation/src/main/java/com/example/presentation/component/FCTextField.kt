@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun FCTextField(
     modifier: Modifier,
-    value: String,
+    value:String,
     onValueChange:(String)->Unit
 ) {
     TextField(
@@ -23,9 +23,9 @@ fun FCTextField(
         onValueChange = onValueChange,
         colors = TextFieldDefaults.textFieldColors(
             containerColor = MaterialTheme.colorScheme.primaryContainer,
-            focusedLabelColor = Color.Transparent,
-            unfocusedLabelColor = Color.Transparent,
-            disabledIndicatorColor = Color.Transparent
+            focusedIndicatorColor = Color.Transparent,
+            unfocusedIndicatorColor = Color.Transparent,
+            disabledIndicatorColor = Color.Transparent,
         ),
         shape = RoundedCornerShape(8.dp),
     )
